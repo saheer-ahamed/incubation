@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/userModel')
+const Application = require('../models/applicationModel')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const authMiddleware = require('../middlewares/authMiddleware')
@@ -56,16 +57,41 @@ router.post('/getUserInfo', authMiddleware, async (req, res, next) => {
         if (!user) {
             return res.status(200).send({ message: "User doesn't exist", success: false })
         } else {
+            const applicationList = await Application.findOne({userId: req.body.userId})
+
             return res.status(200).send({
                 success: true, data: {
                     name: user.name,
                     email: user.email
-                }
+                }, bookings: applicationList,
             })
         }
     } catch (error) {
         console.log(error)
         res.status(500).send({ message: "Error getting user info.", success: false, error })
+    }
+})
+
+router.post('/applyBooking', authMiddleware, async (req, res, next) => {
+    try {
+        const application = await Application.findOne({userId: req.body.userId})
+        if(!application){
+            
+            const newApplication = new Application(req.body);
+            await newApplication.save()
+
+            return res.status(200).send({
+                success: true,
+                message:"Application successfully submitted!"
+            })
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            success: false,
+            message:"Failed"
+        })
+
     }
 })
 

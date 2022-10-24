@@ -2,7 +2,7 @@ import { Form, Input, Button } from "antd";
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { hideLoading, showLoading } from "../redux/alertsReducer";
 

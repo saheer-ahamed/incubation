@@ -1,30 +1,41 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Navbar from "../components/Navbar";
+import Apply from "../components/Apply";
+import Booking from "../components/bookings";
 
 function Home() {
-
+  const [bookingExist, setBookingExist] = useState(null)
   const getData = async () => {
     try {
-      const response = await axios.post('/api/user/getUserInfo', {}, {
-        headers : {
-          Authorization : 'Bearer ' + localStorage.getItem('token')
+      const response = await axios.post(
+        "/api/user/getUserInfo",
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
         }
-      })
-      console.log(response.data)
+      );
+      setBookingExist(response.data.bookings)
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
+    getData();
+  }, []);
 
-    getData()
-
-  }, [])
-  
   return (
-    <div>Home</div>
-  )
+    <div>
+      <Navbar />
+      <div className="apply-parent" style={{display: "-ms-flexbox", flexDirection:"column", alignItems:"center"}}>
+        {!bookingExist && <Apply />}
+        {bookingExist && <Booking data={bookingExist}/>}
+      </div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

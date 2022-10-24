@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Button } from "antd";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
+import Admin from "./pages/admin"
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./components/protectedRoute";
 import PublicRoute from "./components/publicRoute";
@@ -42,6 +42,14 @@ function App() {
             <PublicRoute>
               <Register />
             </PublicRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            // <adminRoute>
+              <Admin />
+            // </adminRoute>
           }
         />
       </Routes>
