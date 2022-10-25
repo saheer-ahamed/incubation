@@ -74,43 +74,43 @@ export default function NestedModal() {
                         </Form.Item>
 
                         <Form.Item name="address">
-                            <Input className='applyForm' placeholder="Address" type="text" />
+                            <Input className='applyForm' placeholder="Address" type="text" required/>
                         </Form.Item>
 
                         <Form.Item name="city">
-                            <Input className='applyForm' placeholder="City" type="text" />
+                            <Input className='applyForm' placeholder="City" type="text" required/>
                         </Form.Item>
 
                         <Form.Item name="state">
-                            <Input className='applyForm' placeholder="State" type="text" />
+                            <Input className='applyForm' placeholder="State" type="text" required/>
                         </Form.Item>
 
                         <Form.Item name="email">
-                            <Input className='applyForm' placeholder="Email" type="email" />
+                            <Input className='applyForm' placeholder="Email" type="email" required/>
                         </Form.Item>
 
                         <Form.Item name="mobile">
-                            <Input className='applyForm' placeholder="Mobile Number" type="number" />
+                            <Input className='applyForm' placeholder="Mobile Number" type="number" required/>
                         </Form.Item>
 
                         <Form.Item name="companyName">
-                            <Input className='applyForm' placeholder="Company Name" type="text" />
+                            <Input className='applyForm' placeholder="Company Name" type="text" required/>
                         </Form.Item>
 
                         <Form.Item name="teamManagement">
-                            <Input className='applyForm' placeholder="Team and Management" type="text" />
+                            <Input className='applyForm' placeholder="Team and Management" type="text" required/>
                         </Form.Item>
 
                         <Form.Item name="companyProfile">
-                            <Input className='applyForm' placeholder="Products and Company Profile" type="text" />
+                            <Input className='applyForm' placeholder="Products and Company Profile" type="text" required/>
                         </Form.Item>
 
                         <Form.Item name="problem">
-                            <Input className='applyForm' placeholder="Problem" type="text" />
+                            <Input className='applyForm' placeholder="Problem" type="text" required/>
                         </Form.Item>
 
                         <Form.Item name="uniqueSolution">
-                            <Input className='applyForm' placeholder="Unique Solution" type="text" />
+                            <Input className='applyForm' placeholder="Unique Solution" type="text" required/>
                         </Form.Item>
 
                         <Button

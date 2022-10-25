@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Stepper from './stepper'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -26,16 +27,11 @@ export default function MultiActionAreaCard(props) {
               {props.data.companyName}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              <Stepper status={props.data.status}/>
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <span size="small" className={colour}>
-            {props.data.status}
-          </span>
-        </CardActions>
+        
       </Card>
     </div>
   );

@@ -1,10 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/Users/Login";
+import Register from "./pages/Users/Register";
 import { Toaster } from "react-hot-toast";
-import Home from "./pages/Home";
-import Admin from "./pages/admin"
+import Home from "./pages/Users/Home";
+import Admin from "./pages/Admin/adminDashboard";
+import ApplicationList from "./pages/Admin/applicationList";
+import UsersList from "./pages/Admin/usersList";
+// import Slots from './pages/Admin/slots'
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./components/protectedRoute";
 import PublicRoute from "./components/publicRoute";
@@ -44,14 +47,10 @@ function App() {
             </PublicRoute>
           }
         />
-        <Route
-          path="/admin"
-          element={
-            // <adminRoute>
-              <Admin />
-            // </adminRoute>
-          }
-        />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/applications" element={<ApplicationList />} />
+        <Route path="/admin/users" element={<UsersList />} />
+        {/* <Route path="/admin/slots" element={<Slots />} /> */}
       </Routes>
     </BrowserRouter>
   );
